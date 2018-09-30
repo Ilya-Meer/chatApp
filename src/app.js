@@ -7,6 +7,7 @@ import MessagesList from './containers/MessagesList';
 import AddMessage from './containers/AddMessage';
 import { addUser } from './actions';
 import './styles/style.scss';
+import setupSocket from './sockets';
 
 import chat from './reducers';
 
