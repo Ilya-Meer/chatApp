@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Sidebar from './containers/Sidebar';
-import MessagesList from './container/Message';
+import MessagesList from './containers/MessagesList';
 import AddMessage from './containers/AddMessage';
 
 import chat from './reducers';

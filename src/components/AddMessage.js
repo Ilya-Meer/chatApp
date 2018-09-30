@@ -5,10 +5,18 @@ class AddMessage extends React.Component {
   constructor(props) {
     super(props);
     this.handleSendMessage = this.handleSendMessage.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      text: undefined,
+      text: '',
     };
+  }
+
+  handleChange(e) {
+    const newText = e.target.value;
+    this.setState(() => ({
+      text: newText,
+    }));
   }
 
   handleSendMessage(e) {
@@ -16,11 +24,6 @@ class AddMessage extends React.Component {
     if (e.key === 'Enter') {
       dispatch(e.target.value, 'Me');
       e.target.value = '';
-    } else {
-      const newText = e.target.value;
-      this.setState(() => ({
-        text: newText,
-      }));
     }
   }
 
@@ -30,6 +33,7 @@ class AddMessage extends React.Component {
       <section id="addMessage">
         <input
           type="text"
+          onChange={this.handleChange}
           onKeyPress={this.handleSendMessage}
           value={text}
         />
