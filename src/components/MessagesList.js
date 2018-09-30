@@ -4,11 +4,18 @@ import Message from './Message';
 
 const MessagesList = ({ messages }) => (
   <section id="messagesList" className="messagesList">
-    <ul>
-      {messages.map(message => (
-        <Message key={message.id} {...message} />
-      ))}
-    </ul>
+    {messages.length >= 1
+      ? (
+        <ul>
+          {messages.map(message => (
+            <Message key={message.id} {...message} />
+          ))}
+        </ul>
+      )
+      : (
+        <p>This is where the messages would be displayed if there were any. Say hello!</p>
+      )
+    }
   </section>
 );
 
