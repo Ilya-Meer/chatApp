@@ -1,22 +1,34 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import Sidebar from './containers/Sidebar';
+import MessagesList from './container/Message';
+import AddMessage from './containers/AddMessage';
 
-const root = document.getElementById('root');
+import chat from './reducers';
+
+const store = createStore(chat);
 
 
 const App = () => (
   <div className="app">
-    <aside>
-      This is the sidebar where you will see a list of users.
-    </aside>
-    <main>
+    <Sidebar />
+    <main id="main">
       This is the main section where you will see the conversation.
+      <MessagesList />
+      <AddMessage />
     </main>
   </div>
 );
 
+
+const root = document.getElementById('root');
+
 render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   root,
 );
 

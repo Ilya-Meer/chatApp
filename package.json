@@ -24,8 +24,11 @@
     "react-hot-loader": "^4.3.11"
   },
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "webpack": "^4.20.2"
   }
 }
