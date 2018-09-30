@@ -1,0 +1,47 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 75%;
+  height: 90vh;
+  margin: 0 auto;
+  border-left: 1px solid #ccc;
+  position: relative;
+}
+
+.sidebar {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.messageBar {
+  width: 80%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  input {
+    width: 100%;
+  }
+}
+
+.messagesList {
+  padding: 3rem;
+}
+
+.message {
+  padding: 15px 0;
+  &:nth-of-type(even) {
+    text-align: right;
+  }
+}
+
+
+
+.container {
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

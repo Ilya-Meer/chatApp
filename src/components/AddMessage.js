@@ -30,7 +30,7 @@ class AddMessage extends React.Component {
   render() {
     const { text } = this.state;
     return (
-      <section id="addMessage">
+      <section id="addMessage" className="messageBar container">
         <input
           type="text"
           onChange={this.handleChange}

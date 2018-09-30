@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import Sidebar from './containers/Sidebar';
 import MessagesList from './containers/MessagesList';
 import AddMessage from './containers/AddMessage';
+import './styles/style.scss';
 
 import chat from './reducers';
 
@@ -14,7 +15,7 @@ const store = createStore(chat);
 const App = () => (
   <div className="app">
     <Sidebar />
-    <main id="main">
+    <main id="main" className="main container">
       This is the main section where you will see the conversation.
       <MessagesList />
       <AddMessage />

@@ -1,25 +1,22 @@
-import * as types from '../constants/ActionTypes';
 import uuid from 'uuid';
-
-const nextMessageId = 0;
-const nextUserId = 0;
+import * as types from '../constants/ActionTypes';
 
 const addMessage = (message, author) => ({
   type: types.ADD_MESSAGE,
-  id: nextMessageId + 1,
+  id: uuid(),
   message,
   author,
 });
 
 const addUser = name => ({
   type: types.ADD_USER,
-  id: nextUserId + 1,
+  id: uuid(),
   name,
 });
 
 const messageReceived = (message, author) => ({
   type: types.MESSAGE_RECEIVED,
-  id: nextMessageId + 1,
+  id: uuid(),
   message,
   author,
 });

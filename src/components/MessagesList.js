@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Message from './Message';
 
 const MessagesList = ({ messages }) => (
-  <section id="messagesList">
+  <section id="messagesList" className="messagesList">
     <ul>
       {messages.map(message => (
         <Message key={message.id} {...message} />
@@ -15,7 +15,7 @@ const MessagesList = ({ messages }) => (
 MessagesList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       message: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
     }).isRequired,

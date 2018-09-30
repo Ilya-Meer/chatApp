@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Message = ({ message, author }) => (
-  <p>
+  <p className="message">
     <span>{`${author}:`}</span>
     {message}
   </p>
