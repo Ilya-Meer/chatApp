@@ -1,3 +1,4 @@
+const uuid = require('uuid');
 const WebSocket = require('ws');
 
 const wss = new WebSocket.Server({ port: 9000 });
@@ -19,7 +20,7 @@ wss.on('connection', (ws) => {
     switch (data.type) {
       case 'ADD_USER':
         index = users.length;
-        users.push({ name: data.name, id: index + 1 });
+        users.push({ name: data.name, id: uuid() });
         ws.send(JSON.stringify({
           type: 'USERS_LIST',
           users,

@@ -1,18 +1,28 @@
+import '../node_modules/regenerator-runtime/runtime';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
 import Sidebar from './containers/Sidebar';
 import MessagesList from './containers/MessagesList';
 import AddMessage from './containers/AddMessage';
-import { addUser } from './actions';
+import reducers from './reducers';
 import './styles/style.scss';
 import setupSocket from './sockets';
+import handleNewMessage from './sagas';
+import username from './utils/name';
 
-import chat from './reducers';
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(chat);
-store.dispatch(addUser('Me'));
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware),
+);
+
+const socket = setupSocket(store.dispatch, username);
+sagaMiddleware.run(handleNewMessage, { socket, username });
 
 const App = () => (
   <div className="app">
