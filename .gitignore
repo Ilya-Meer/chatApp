@@ -21,3 +21,4 @@ ehthumbs.db
 
 
 node_modules/
+.env
